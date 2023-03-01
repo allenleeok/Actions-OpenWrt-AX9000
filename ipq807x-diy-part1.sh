@@ -6,7 +6,7 @@
 # See /LICENSE for more information.
 #
 # https://github.com/P3TERX/Actions-OpenWrt
-# File name: lede_diy-part1.sh
+# File name: ipq807x-diy-part1.sh
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
 #
 
