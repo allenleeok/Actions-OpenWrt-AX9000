@@ -6,7 +6,7 @@
 # See /LICENSE for more information.
 #
 # https://github.com/P3TERX/Actions-OpenWrt
-# File name: diy-part2.sh
+# File name: ipq807x-diy-part2.sh
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 
@@ -28,8 +28,7 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 #4.编译的固件文件名添加日期
 sed -i 's/IMG_PREFIX:=$(VERSION_DIST_SANITIZED)/IMG_PREFIX:=$(shell TZ=UTC-8 date "+%Y%m%d")-$(VERSION_DIST_SANITIZED)/g' include/image.mk
 
-#5.更换lede源码中自带argon主题
-rm -rf feeds/luci/themes/luci-theme-argon && git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/luci/themes/luci-theme-argon 
+git clone https://github.com/jerrykuku/luci-theme-argon.git feeds/luci/themes/luci-theme-argon 
 
 #6.添加自动挂载磁盘脚本
 #mkdir -p files/etc/hotplug.d/block && wget -O files/etc/hotplug.d/block/30-usbmount https://raw.githubusercontent.com/ficheny/P3TERX_Actions-OpenWrt/main/files/etc/hotplug.d/block/30-usbmount && chmod 755 files/etc/hotplug.d/block/30-usbmount
@@ -81,5 +80,5 @@ git clone https://github.com/kiddin9/luci-app-dnsfilter.git package/luci-app-dns
 git clone https://github.com/riverscn/openwrt-iptvhelper.git package/openwrt-iptvhelper
 #添加smartdns
 git clone https://github.com/pymumu/openwrt-smartdns package/smartdns
-git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/luci-app-smartdns
+git clone https://github.com/pymumu/luci-app-smartdns.git package/luci-app-smartdns
 #git clone -b luci https://github.com/pexcn/openwrt-chinadns-ng.git package/luci-app-chinadns-ng
